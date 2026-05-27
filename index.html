@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DILICART Employee Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    overflow-x:hidden;
+}
+
+/* HEADER */
+.header{
+    width:100%;
+    background:linear-gradient(135deg,#ff7b00,#ffb347);
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo img{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:white;
+    padding:5px;
+}
+
+.logo h1{
+    color:white;
+    font-size:28px;
+    font-weight:700;
+}
+
+.navbar a{
+    text-decoration:none;
+    color:white;
+    margin:0 12px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.navbar a:hover{
+    color:black;
+}
+
+/* HERO SECTION */
+.hero{
+    width:100%;
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:50px;
+    background:linear-gradient(to right,#fff7ef,#ffe0b8);
+}
+
+.hero-container{
+    width:100%;
+    max-width:1300px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.left h2{
+    font-size:55px;
+    color:#ff6a00;
+    margin-bottom:20px;
+}
+
+.left p{
+    color:#444;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.btn{
+    padding:14px 35px;
+    border:none;
+    border-radius:40px;
+    background:linear-gradient(135deg,#ff6a00,#ffb347);
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 5px 20px rgba(255,106,0,0.3);
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+.right{
+    display:flex;
+    justify-content:center;
+}
+
+.card{
+    width:380px;
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    width:200px;
+    height:200px;
+    background:rgba(255,123,0,0.1);
+    border-radius:50%;
+    top:-80px;
+    right:-80px;
+}
+
+.profile{
+    text-align:center;
+    position:relative;
+    z-index:1;
+}
+
+.profile img{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    border:5px solid #ff7b00;
+    object-fit:cover;
+    margin-bottom:15px;
+}
+
+.profile h3{
+    color:#222;
+    font-size:28px;
+}
+
+.profile h4{
+    color:#ff6a00;
+    margin-bottom:20px;
+}
+
+.info{
+    margin-top:20px;
+}
+
+.info div{
+    display:flex;
+    justify-content:space-between;
+    background:#f8f8f8;
+    padding:12px 15px;
+    border-radius:12px;
+    margin-bottom:12px;
+}
+
+.info span{
+    color:#666;
+    font-size:14px;
+}
+
+.info strong{
+    color:#222;
+}
+
+/* FEATURES */
+.features{
+    padding:70px 40px;
+    background:white;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.title h2{
+    font-size:42px;
+    color:#ff6a00;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.box{
+    background:#fff7ef;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    transition:0.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.box:hover{
+    transform:translateY(-8px);
+}
+
+.box h3{
+    margin:15px 0;
+    color:#ff6a00;
+}
+
+.box p{
+    color:#555;
+    line-height:1.6;
+}
+
+.icon{
+    font-size:50px;
+}
+
+/* DASHBOARD */
+.dashboard{
+    padding:70px 40px;
+    background:#fff4e8;
+}
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.dashboard-card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.dashboard-card h2{
+    color:#ff6a00;
+    margin-bottom:15px;
+}
+
+.dashboard-card p{
+    color:#555;
+}
+
+/* FOOTER */
+.footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+.footer span{
+    color:#ff9b3d;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+
+.hero-container{
+    grid-template-columns:1fr;
+}
+
+.left{
+    text-align:center;
+}
+
+.left h2{
+    font-size:42px;
+}
+
+.navbar{
+    display:none;
+}
+
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+
+<div class="logo">
+<img src="https://cdn-icons-png.flaticon.com/512/891/891462.png">
+<h1>DILICART</h1>
+</div>
+
+<div class="navbar">
+<a href="#">Home</a>
+<a href="#">Employees</a>
+<a href="#">Dashboard</a>
+<a href="#">Reports</a>
+<a href="#">Settings</a>
+</div>
+
+</div>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-container">
+
+<div class="left">
+<h2>DILICART Managing Director</h2>
+<p>
+Manage employee identity, attendance, reports, company dashboard, and management operations with a modern professional interface designed specially for DILICART E-Commerce Online Shop.
+</p>
+<button class="btn">Open Dashboard</button>
+</div>
+
+<div class="right">
+<div class="card">
+<div class="profile">
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+<h3>Abhishek Shukla</h3>
+<h4>Managing Director (MD)</h4>
+</div>
+
+<div class="info">
+<div>
+<span>Employee ID</span>
+<strong>001</strong>
+</div>
+
+<div>
+<span>Department</span>
+<strong>Management</strong>
+</div>
+
+<div>
+<span>Company</span>
+<strong>DILICART</strong>
+</div>
+
+<div>
+<span>Password</span>
+<strong>dilicart.director2212</strong>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ABOUT EMPLOYEE -->
+<section class="features">
+<div class="title">
+<h2>About Employee</h2>
+</div>
+
+<div class="grid">
+
+<div class="box">
+<div class="icon">👤</div>
+<h3>Employee Profile</h3>
+<p>
+Abhishek Shukla is working as the Managing Director (MD) of DILICART E-COMMERCE ONLINE SHOP. He manages company operations, employee coordination, management systems, and business growth activities.
+</p>
+</div>
+
+<div class="box">
+<div class="icon">🆔</div>
+<h3>Employee Identity</h3>
+<p>
+Official Employee ID: 001<br>
+Department: Management Department<br>
+Position: Managing Director (MD)
+</p>
+</div>
+
+<div class="box">
+<div class="icon">🏢</div>
+<h3>Company Responsibility</h3>
+<p>
+Responsible for handling management decisions, monitoring company performance, supervising operations, and improving DILICART business systems.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+<h3>© 2026 <span>DILICART E-COMMERCE ONLINE SHOP</span> | Employee Management Portal</h3>
+</div>
+
+</body>
+</html>
